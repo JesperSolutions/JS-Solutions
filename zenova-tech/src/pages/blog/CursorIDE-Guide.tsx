@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Calendar, Clock, ArrowRight, BookOpen, Tag, User, Code, Zap, Target, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SocialShare from '../../components/SocialShare';
 
 const CursorIDEGuide = () => {
   const cursorRules = [
@@ -312,6 +313,11 @@ const CursorIDEGuide = () => {
                   </Link>
                 </div>
               </section>
+
+              <SocialShare 
+                title="Mastering Cursor IDE: Top 10 Rules for Modern Developers"
+                description="Learn the essential rules for maximizing productivity with Cursor IDE. From context management to AI-powered development workflows."
+              />
             </div>
           </div>
         </div>

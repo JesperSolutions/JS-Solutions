@@ -1,11 +1,13 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import { pageVariants, pageTransition } from './components/Animations';
+import { analytics } from './lib/analytics';
+import { performanceMonitor } from './lib/performance';
 
 // Lazy load pages for code splitting
 const About = lazy(() => import('./pages/About'));
@@ -44,6 +46,25 @@ const AnimatedPage = ({ children }: { children: React.ReactNode }) => (
 // App content component that uses useLocation
 const AppContent = () => {
   const location = useLocation();
+  
+  // Initialize analytics and performance monitoring
+  useEffect(() => {
+    // Initialize analytics
+    analytics.init();
+    
+    // Initialize performance monitoring
+    performanceMonitor.init();
+    
+    // Track page view on route change
+    analytics.trackPageView(location.pathname);
+    
+    // Track user journey
+    analytics.trackUserJourney('page_view', location.pathname);
+    
+    return () => {
+      // Cleanup if needed
+    };
+  }, [location.pathname]);
   
   return (
     <div>
