@@ -172,8 +172,8 @@ const Projects = () => {
             </h1>
             
             <p className="hero-description">
-              Udforsk mine seneste projekter inden for AI-integration, ESG-compliance og digital transformation. 
-              Hver løsning er designet til at skabe reel værdi og drive innovation fremad.
+              Seneste projekter inden for AI, ESG og skalérbar arkitektur. 
+              Hver løsning er designet til at skabe reel værdi.
             </p>
             
             <div className="project-stats">

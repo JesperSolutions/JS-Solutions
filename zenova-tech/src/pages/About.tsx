@@ -177,16 +177,91 @@ const About = () => {
         </div>
       </section>
 
-      {/* What's Next Section */}
-      <section className="next-steps-section">
-        <div className="container">
-          <div className="section-header">
-            <h2>Hvad er næste skridt?</h2>
-            <p>
-              Jeg fokuserer på at hjælpe danske virksomheder med at navigere i den digitale transformation 
-              og implementere teknologi der skaber reel værdi.
-            </p>
-          </div>
+          {/* Experience Timeline Section */}
+          <section className="experience-section">
+            <div className="container">
+              <div className="section-header">
+                <h2>Min rejse inden for teknologi</h2>
+                <p>
+                  Fra mine første skridt som IT-teknolog til min rolle som løsningsarkitekt hos Binné Danmark - 
+                  her er min professionelle udvikling.
+                </p>
+              </div>
+              
+              <div className="timeline">
+                <div className="timeline-item">
+                  <div className="timeline-marker">
+                    <div className="marker-dot"></div>
+                  </div>
+                  <div className="timeline-content">
+                    <h3>Løsningsarkitekt hos Binné Danmark</h3>
+                    <p className="timeline-period">2024 - Nu</p>
+                    <p>
+                      Design og implementering af skalerbare løsninger for danske virksomheder. 
+                      Fokus på cloud-arkitektur, systemintegration og digital transformation.
+                    </p>
+                    <ul className="timeline-skills">
+                      <li>Cloud-native arkitektur</li>
+                      <li>Mikroservicearkitektur</li>
+                      <li>API-design og integration</li>
+                      <li>DevOps og CI/CD pipelines</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="timeline-item">
+                  <div className="timeline-marker">
+                    <div className="marker-dot"></div>
+                  </div>
+                  <div className="timeline-content">
+                    <h3>Tech Lead & Projektleder</h3>
+                    <p className="timeline-period">2022 - 2024</p>
+                    <p>
+                      Ledelse af teknisk udvikling og projektstyring for flere danske virksomheder. 
+                      Implementering af moderne udviklingsmetoder og team-udvikling.
+                    </p>
+                    <ul className="timeline-skills">
+                      <li>Agile projektledelse</li>
+                      <li>Team-udvikling og mentoring</li>
+                      <li>Teknisk arkitektur</li>
+                      <li>Kvalitetssikring og testing</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="timeline-item">
+                  <div className="timeline-marker">
+                    <div className="marker-dot"></div>
+                  </div>
+                  <div className="timeline-content">
+                    <h3>IT-teknolog & Udvikler</h3>
+                    <p className="timeline-period">2020 - 2022</p>
+                    <p>
+                      Start på min teknologiske rejse med fokus på webudvikling, databaser og systemintegration. 
+                      Grundlæggende erfaring med moderne teknologier.
+                    </p>
+                    <ul className="timeline-skills">
+                      <li>Webudvikling (React, Node.js)</li>
+                      <li>Database-design og optimering</li>
+                      <li>Systemintegration</li>
+                      <li>Problemløsning og debugging</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* What's Next Section */}
+          <section className="next-steps-section">
+            <div className="container">
+              <div className="section-header">
+                <h2>Hvad er næste skridt?</h2>
+                <p>
+                  Jeg fokuserer på at hjælpe danske virksomheder med at navigere i den digitale transformation 
+                  og implementere teknologi der skaber reel værdi.
+                </p>
+              </div>
 
           <div className="next-steps-grid">
             <div className="next-step-card">

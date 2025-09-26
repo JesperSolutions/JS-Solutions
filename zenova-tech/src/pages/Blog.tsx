@@ -143,8 +143,8 @@ const Blog = () => {
             </h1>
             
             <p className="hero-description">
-              Udforsk mine artikler om AI-integration, ESG-compliance, digital transformation og moderne systemarkitektur. 
-              Praktiske insights der hjælper dig med at navigere i den digitale fremtid.
+              Udforsk artikler om AI-integration, ESG og digital transformation. 
+              Praktiske insights, der hjælper dig med at træffe kloge beslutninger hurtigt.
             </p>
             
             <div className="blog-stats">

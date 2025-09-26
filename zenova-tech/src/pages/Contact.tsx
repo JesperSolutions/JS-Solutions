@@ -146,8 +146,7 @@ const Contact = () => {
             </h1>
             
             <p className="hero-description">
-              Har du et projekt eller en udfordring, jeg kan hjælpe med? Lad os sammen finde ud af, 
-              hvordan vi kan skabe værdi og implementere løsninger der virker i praksis.
+              Klar til at starte? Lad os finde den bedste vej frem for din virksomhed.
             </p>
             
             <div className="contact-stats">

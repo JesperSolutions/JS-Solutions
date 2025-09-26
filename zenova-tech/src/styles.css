@@ -3,17 +3,37 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@200;300;400;500;600;700&family=Noto+Sans+JP:wght@200;300;400;500;600;700&display=swap');
 
-/* Japanese-Modern Color Palette */
+/* Design Tokens - Single Source of Truth */
 :root {
-  /* Deep Indigo → Ink Gradient */
-  --zen-deep-indigo: #0B1220;
-  --zen-ink: #0E0F1A;
-  --zen-murasaki: #A25AFF;
-  --zen-murasaki-light: #B78BFA;
-  --zen-off-white: #ECEAF7;
-  --zen-cinnabar: #D9381E;
+  /* Core Colors */
+  --ink-900: #0B1220;   /* deep indigo */
+  --ink-800: #0E0F1A;
+  --ink-700: #162033;
+  --plum-400: #B78BFA;
+  --plum-500: #A25AFF;
+  --paper: #ECEAF7;
+  --paper-weak: rgba(236,234,247,.72);
+  --glass: rgba(26,18,40,.5);
+  --stroke: rgba(168,120,255,.28);
   
-  /* Refined Grays */
+  /* Layout */
+  --radius-xl: 22px;
+  --shadow-soft: 0 10px 30px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.06);
+  --shadow-hover: 0 14px 40px rgba(0,0,0,.18), 0 3px 12px rgba(0,0,0,.08);
+  
+  /* Motion */
+  --ease-entrance: cubic-bezier(.22,.61,.36,1);
+  --ease-float: ease-in-out;
+  --duration-entrance: 800ms;
+  --duration-hover: 180ms;
+  --duration-float: 14s;
+  
+  /* Legacy Support */
+  --zen-deep-indigo: var(--ink-900);
+  --zen-ink: var(--ink-800);
+  --zen-murasaki: var(--plum-500);
+  --zen-murasaki-light: var(--plum-400);
+  --zen-off-white: var(--paper);
   --zen-white: #FFFFFF;
   --zen-gray-50: #F8FAFC;
   --zen-gray-100: #F1F5F9;
@@ -25,56 +45,14 @@
   --zen-gray-700: #334155;
   --zen-gray-800: #1E293B;
   --zen-gray-900: #0F172A;
-  
-  /* Futuristic Accents - Subtle holographic elements */
-  --zen-glow: rgba(255, 255, 255, 0.1);
-  --zen-shadow: rgba(0, 0, 0, 0.02);
-  --zen-border: rgba(255, 255, 255, 0.1);
-  --zen-border-subtle: rgba(255, 255, 255, 0.05);
-  --zen-border-strong: rgba(255, 255, 255, 0.2);
-  
-  /* Legacy support for existing components */
-  --cosmic-deep: var(--zen-gray-900);
-  --cosmic-dark: var(--zen-gray-800);
-  --cosmic-medium: var(--zen-gray-700);
-  --cosmic-light: var(--zen-gray-600);
-  
-  --stellar-white: var(--zen-white);
-  --stellar-off: var(--zen-off-white);
-  --stellar-gray: var(--zen-gray-200);
-  
-  --nova-purple: var(--zen-gray-400);
-  --nova-bright: var(--zen-gray-300);
-  --nova-light: var(--zen-gray-200);
-  --nova-pale: var(--zen-gray-100);
-  
-  --zen-deep: var(--zen-gray-500);
-  --zen-bright: var(--zen-gray-400);
-  --zen-light: var(--zen-gray-300);
-  --zen-pale: var(--zen-gray-100);
-  
-  --golden-bright: var(--zen-gray-400);
-  --golden-medium: var(--zen-gray-500);
-  --golden-light: var(--zen-gray-300);
-  --golden-pale: var(--zen-gray-100);
-  
-  --japan-red: var(--zen-gray-500);
-  --japan-gold: var(--zen-gray-400);
-  --neon-blue: var(--zen-gray-400);
-  --neon-pink: var(--zen-gray-400);
-  --cyber-green: var(--zen-gray-400);
-  
-  /* Japanese-Modern Gradients */
-  --zen-gradient: linear-gradient(135deg, var(--zen-deep-indigo) 0%, var(--zen-ink) 100%);
+}
+
+/* Updated Gradients */
+:root {
+  --zen-gradient: linear-gradient(135deg, var(--ink-900) 0%, var(--ink-800) 100%);
   --zen-gradient-light: linear-gradient(135deg, var(--zen-white) 0%, var(--zen-gray-50) 100%);
-  --zen-gradient-murasaki: linear-gradient(135deg, var(--zen-murasaki) 0%, var(--zen-murasaki-light) 100%);
-  --zen-gradient-text: linear-gradient(135deg, var(--zen-murasaki) 0%, var(--zen-murasaki-light) 100%);
-  
-  /* Legacy support */
-  --cosmic-gradient: var(--zen-gradient);
-  --nova-gradient: var(--zen-gradient-light);
-  --japan-gradient: var(--zen-gradient-light);
-  --future-gradient: var(--zen-gradient-light);
+  --zen-gradient-murasaki: linear-gradient(135deg, var(--plum-500) 0%, var(--plum-400) 100%);
+  --zen-gradient-text: linear-gradient(135deg, var(--plum-500) 0%, var(--plum-400) 100%);
 }
 
 /* Reset and Base */
@@ -150,19 +128,287 @@ p {
   opacity: 0.9;
 }
 
-/* 2070 Japanese Clean Components */
-.zen-card {
-  background: var(--zen-white);
-  border: 1px solid var(--zen-border-subtle);
-  border-radius: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+/* Glass Cards - Sharpened Contrast */
+.card {
+  background: linear-gradient(180deg, rgba(20,16,32,0.45), rgba(18,16,30,0.55));
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(10px) saturate(115%);
+  color: var(--paper);
+  transition: all var(--duration-hover) var(--ease-entrance);
 }
 
-.zen-card:hover {
-  border-color: var(--zen-border);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card .meta {
+  color: var(--paper-weak);
+}
+
+/* Light mode variant for ultra-light sections */
+.card--light {
+  background: rgba(255,255,255,0.66);
+  color: #1d2230;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.card--light .meta {
+  color: rgba(18,22,33,0.7);
+}
+
+/* Metric Tiles - Enhanced Visibility */
+.metric {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  padding: 18px 22px;
+  color: #0e1320;
+  transition: all var(--duration-hover) var(--ease-entrance);
+}
+
+.metric:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft);
+}
+
+.metric .value {
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: 0.02em;
+  color: var(--ink-900);
+}
+
+/* CTA Band - Enhanced Focus */
+.cta-band {
+  position: relative;
+  padding: 72px 20px;
+  text-align: center;
+  isolation: isolate;
+}
+
+.cta-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  margin: 0 auto;
+  max-width: 980px;
+  background: linear-gradient(180deg, rgba(15,18,28,0.7), rgba(15,18,28,0.6));
+  backdrop-filter: blur(10px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.08);
+  z-index: 0;
+}
+
+.cta-band h2,
+.cta-band p,
+.cta-band .actions {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-band h2 {
+  color: var(--paper);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+.button-primary {
+  background: linear-gradient(180deg, var(--plum-500), #7E57C2);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(162,90,255,0.28);
+  transition: all var(--duration-hover) var(--ease-entrance);
+}
+
+/* Contact Form - Enhanced Affordance */
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(0,0,0,0.12);
+  color: #0e1320;
+  font-size: 16px;
+  transition: all var(--duration-hover) var(--ease-entrance);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--plum-500);
+  box-shadow: 0 0 0 3px rgba(162,90,255,0.25);
+  background: rgba(255,255,255,0.95);
+}
+
+.contact-card a {
+  color: inherit;
+  text-decoration: none;
+  transition: all var(--duration-hover) var(--ease-entrance);
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+  color: var(--plum-500);
+}
+
+/* Motion Hygiene - Consistent, Calm, Accessible */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Consistent easing for all animations */
+.zenova-tag {
+  animation: zen-fade var(--duration-entrance) var(--ease-entrance) forwards,
+             zen-float var(--duration-float) var(--ease-float) infinite;
+}
+
+@keyframes zen-fade {
+  to {
+    opacity: 1;
+    transform: translate(-50%,-50%) translateY(0) scale(1);
+  }
+}
+
+@keyframes zen-float {
+  0%, 100% {
+    transform: translate(-50%,-50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%,-50%) translateY(-6px);
+  }
+}
+
+/* Navigation - Enhanced Readability Over Gradients */
+.nav {
+  background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.6));
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.nav a {
+  color: #1b2335;
+  font-weight: 600;
+  transition: all var(--duration-hover) var(--ease-entrance);
+}
+
+.nav a:hover {
+  color: #3b4670;
+}
+
+/* Experience Timeline */
+.experience-section {
+  padding: 4rem 0;
+  background: var(--zen-gradient-light);
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--plum-500), var(--plum-400));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-left: 80px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marker-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--plum-500);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(162, 90, 255, 0.2);
+}
+
+.timeline-content {
+  background: var(--zen-white);
+  border: 1px solid var(--zen-border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-soft);
+  transition: all var(--duration-hover) var(--ease-entrance);
+}
+
+.timeline-content:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.timeline-content h3 {
+  color: var(--ink-900);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-period {
+  color: var(--plum-500);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.timeline-content p {
+  color: var(--zen-gray-700);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.timeline-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-skills li {
+  background: var(--zen-gray-100);
+  color: var(--zen-gray-700);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
 /* JAPANESE FUTURE: Multi-layered Background with Japanese Elements */
@@ -427,7 +673,45 @@ main {
   background: var(--zen-gradient);
 }
 
-/* Japanese-Modern Hero Section */
+/* Section Hero - Fixed Watermark & Contrast */
+.section-hero {
+  position: relative;
+  min-height: 80vh;
+  isolation: isolate;
+  background: var(--zen-gradient);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.section-hero .watermark {
+  position: absolute;
+  inset: auto auto 10% 8%;
+  font-weight: 700;
+  font-size: clamp(56px, 10vw, 120px);
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.08);
+  pointer-events: none;
+  user-select: none;
+}
+
+.section-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(600px circle at 18% 36%, rgba(11,18,32,0.78), transparent 70%);
+}
+
+.section-hero .title,
+.section-hero .lede {
+  position: relative;
+  z-index: 1;
+  color: rgba(255,255,255,0.96);
+}
+
+/* Legacy hero support */
 .hero {
   position: relative;
   min-height: 80vh;
