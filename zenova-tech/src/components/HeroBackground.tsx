@@ -8,6 +8,18 @@ const SERVICES = [
   "Agile Methods", "Lean Processes", "Design Thinking", "Continuous Improvement"
 ];
 
+// Better distribution patterns for floating elements
+const DISTRIBUTION_PATTERNS = [
+  { x: 0.2, y: 0.3, angle: 45 },   // Top-left
+  { x: 0.8, y: 0.2, angle: 135 },  // Top-right
+  { x: 0.1, y: 0.7, angle: 225 },  // Bottom-left
+  { x: 0.9, y: 0.8, angle: 315 },  // Bottom-right
+  { x: 0.5, y: 0.1, angle: 90 },   // Top-center
+  { x: 0.3, y: 0.5, angle: 180 },  // Left-center
+  { x: 0.7, y: 0.5, angle: 0 },    // Right-center
+  { x: 0.5, y: 0.9, angle: 270 }   // Bottom-center
+];
+
 export default function HeroBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [anchors, setAnchors] = useState<{ x: number; y: number; label: string }[]>([]);
@@ -16,12 +28,13 @@ export default function HeroBackground() {
   const linkDistance2 = 130 * 130; // squared; calmer connections
   const maxLinksPer = 2;         // sparsity
   
-  // Calm motion constants - Japanese-modern aesthetic
-  const SPEED = 0.01;            // overall drift - much slower
-  const MAX_SPEED = 0.10;        // cap velocity - calmer
-  const DAMPING = 0.997;         // floaty - more damping
-  const BREATH = 0.0025;         // micro-wiggle - subtle
-  const PULSE_SPEED = 0.9;       // dot twinkle rate - slower
+  // Smoother motion constants - Enhanced Japanese-modern aesthetic
+  const SPEED = 0.008;           // even slower drift
+  const MAX_SPEED = 0.08;         // calmer velocity cap
+  const DAMPING = 0.998;         // more floaty damping
+  const BREATH = 0.002;           // subtler micro-wiggle
+  const PULSE_SPEED = 0.7;       // slower, smoother twinkle
+  const FADE_SPEED = 0.003;       // smooth fade in/out
 
   // reduced-motion?
   const prefersReduced = useMemo(() => {
@@ -36,15 +49,22 @@ export default function HeroBackground() {
     let h = (c.height = c.offsetHeight * devicePixelRatio);
 
     const rnd = (n=1)=>Math.random()*n;
-    const sign = ()=> (Math.random() < 0.5 ? -1 : 1);
 
-    // init particles
-    const pts: Vec[] = Array.from({ length: particleCount }, () => ({
-      x: rnd(w), y: rnd(h),
-      vx: (rnd(0.5)+0.2) * SPEED * sign(),
-      vy: (rnd(0.5)+0.2) * SPEED * sign(),
-      life: rnd(1)
-    }));
+    // init particles with better distribution
+    const pts: Vec[] = Array.from({ length: particleCount }, (_, i) => {
+      const pattern = DISTRIBUTION_PATTERNS[i % DISTRIBUTION_PATTERNS.length];
+      const baseX = pattern.x * w;
+      const baseY = pattern.y * h;
+      const spread = 0.1; // 10% spread around pattern position
+      
+      return {
+        x: baseX + (rnd(2) - 1) * spread * w,
+        y: baseY + (rnd(2) - 1) * spread * h,
+        vx: (rnd(0.3) + 0.1) * SPEED * Math.cos(pattern.angle * Math.PI / 180),
+        vy: (rnd(0.3) + 0.1) * SPEED * Math.sin(pattern.angle * Math.PI / 180),
+        life: rnd(1)
+      };
+    });
 
     // pick anchor indices for service labels
     const anchorIdxs = new Set<number>();
@@ -122,7 +142,7 @@ export default function HeroBackground() {
         if (p.x < -10) p.x = w+10; if (p.x > w+10) p.x = -10;
         if (p.y < -10) p.y = h+10; if (p.y > h+10) p.y = -10;
 
-        p.life += dtSec * 0.6;   // life advances slower now
+        p.life += dtSec * FADE_SPEED;   // smooth fade in/out
       }
 
       // connections

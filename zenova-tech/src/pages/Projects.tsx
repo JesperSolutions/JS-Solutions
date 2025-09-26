@@ -20,6 +20,7 @@ const Projects = () => {
       year: "2024",
       icon: Lightbulb,
       color: "primary",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
       demoUrl: "#",
       githubUrl: "#"
     },
@@ -39,6 +40,7 @@ const Projects = () => {
       year: "2024",
       icon: ShieldCheck,
       color: "secondary",
+      image: "https://images.unsplash.com/photo-1569163139394-de446e504b1c?w=600&h=400&fit=crop",
       demoUrl: "#",
       githubUrl: "#"
     },
@@ -58,6 +60,7 @@ const Projects = () => {
       year: "2025",
       icon: Rocket,
       color: "primary",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
       demoUrl: "#",
       githubUrl: "#"
     },
@@ -77,6 +80,7 @@ const Projects = () => {
       year: "2023",
       icon: Users,
       color: "secondary",
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop",
       demoUrl: "#",
       githubUrl: "#"
     },
@@ -248,18 +252,26 @@ const Projects = () => {
               
               return (
                 <div key={project.id} className="project-card">
+                  <div className="project-image">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="project-photo"
+                    />
+                  </div>
+                  
                   <div className="project-header">
                     <div className={`project-icon ${project.color}`}>
                       <Icon size={28} />
-                    </div>
+                        </div>
                     <div className="project-meta">
                       <span className="project-category">{project.category}</span>
                       <span className={`project-status ${getStatusColor(project.status)}`}>
                         {getStatusText(project.status)}
                       </span>
-                    </div>
-                  </div>
-
+                        </div>
+                      </div>
+                      
                   <div className="project-content">
                     <h3>{project.title}</h3>
                     <p>{project.description}</p>
@@ -271,7 +283,7 @@ const Projects = () => {
                           <span>{feature}</span>
                         </div>
                       ))}
-                    </div>
+                      </div>
 
                     <div className="project-technologies">
                       {project.technologies.map((tech, index) => (

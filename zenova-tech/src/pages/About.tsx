@@ -29,9 +29,9 @@ const About = () => {
             </h1>
             
             <p className="hero-description">
-              Med passion for at omsætte komplekse udfordringer til konkrete, skalerbare løsninger. 
-              Jeg trives, når tingene er svære – for netop dér kan vi flytte grænser og skabe resultater 
-              der transformerer din virksomhed.
+              Jeg hjælper virksomheder med at finde de rigtige løsninger gennem teknologi og netværk. 
+              Som tech lead og løsningsarkitekt forbinder jeg komplekse udfordringer med konkrete, 
+              skalerbare løsninger og de rigtige mennesker til at implementere dem.
             </p>
             
             <div className="about-details">
@@ -45,7 +45,7 @@ const About = () => {
               </div>
               <div className="detail-item">
                 <Target size={20} />
-                <span>Løsningsarkitekt hos Binné Danmark</span>
+                <span>Hjælper Binné Danmark med løsningsarkitektur</span>
               </div>
             </div>
             
@@ -63,6 +63,13 @@ const About = () => {
 
           <div className="hero-visual">
             <div className="profile-container">
+              <div className="profile-image">
+                <img 
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" 
+                  alt="Jesper Aggerholm - Tech Lead"
+                  className="profile-photo"
+                />
+              </div>
               <div className="profile-card">
                 <div className="profile-avatar">
                   <div className="avatar-circle">
@@ -73,7 +80,7 @@ const About = () => {
                 <div className="profile-info">
                   <h3>Jesper Aggerholm</h3>
                   <p className="profile-title">Tech Lead & Løsningsarkitekt</p>
-                  <p className="profile-company">Binné Danmark</p>
+                  <p className="profile-company">Freelance Tech Lead</p>
                 </div>
                 <div className="profile-stats">
                   <div className="stat-item">
@@ -128,29 +135,31 @@ const About = () => {
             </div>
             <h3>ESG & Bæredygtighed</h3>
             <p>
-              Med den nye L193-lov bliver ESG ikke længere valgfrit. Jeg hjælper 
-              virksomheder med at implementere bæredygtige strategier der skaber værdi.
+              Med den nye L193-lov bliver ESG ikke længere valgfrit. Jeg forbinder 
+              virksomheder med de rigtige bæredygtighedsrådgivere og hjælper med at 
+              komme i gang med implementering.
             </p>
             <ul className="service-features">
-              <li>ESG-compliance og rapportering</li>
-              <li>Bæredygtig digitalisering</li>
-              <li>Grøn teknologi-implementering</li>
+              <li>Forbinder med ESG-rådgivere</li>
+              <li>Hjælper med at komme i gang</li>
+              <li>Teknisk support til implementering</li>
             </ul>
           </div>
 
           <div className="service-card">
-            <div className="service-icon primary">
-              <Rocket size={28} />
+            <div className="service-icon secondary">
+              <Users size={28} />
             </div>
-            <h3>Skalerbar Arkitektur</h3>
+            <h3>Netværk & Forbindelser</h3>
             <p>
-              Jeg bygger systemer der kan vokse med din virksomhed og tilpasse sig 
-              fremtidens behov uden at skulle bygges om fra bunden.
+              Jeg forbinder virksomheder med de rigtige mennesker inden for markedsføring, 
+              investering og teknologi. Som Agritectum og Taklaget Entrepanad har oplevet, 
+              kan jeg hjælpe med at bygge platforme gennem AI og egen kodning.
             </p>
             <ul className="service-features">
-              <li>Cloud-native løsninger</li>
-              <li>Mikroservicearkitektur</li>
-              <li>Performance optimering</li>
+              <li>Markedsførings- og investeringskontakter</li>
+              <li>AI-platform udvikling</li>
+              <li>Teknisk implementering</li>
             </ul>
           </div>
         </div>
