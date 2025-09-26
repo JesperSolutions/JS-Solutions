@@ -169,53 +169,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="testimonials-section">
-        <div className="container">
-          <div className="section-header">
-            <h2>Hvad siger mine kolleger?</h2>
-            <p>
-              Her er hvad mine tidligere kolleger og teammedlemmer siger om arbejdet sammen.
-            </p>
-          </div>
-
-          <div className="testimonials-grid">
-            <div className="testimonial-card">
-              <div className="testimonial-content">
-                <blockquote>
-                  "Having Jesper as my internship supervisor was a cornerstone for my career. 
-                  The assignments and advises he gave me, helped me to expand my knowledge, 
-                  finish my tasks on time and prepare me for the real world work flow. 
-                  His professional experience and wide knowledge makes him a great team leader."
-                </blockquote>
-              </div>
-              <div className="testimonial-author">
-                <div className="author-info">
-                  <h4>Anton Kamenov</h4>
-                  <p>Software Automation Developer</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="testimonial-card">
-              <div className="testimonial-content">
-                <blockquote>
-                  "Jesper is one of the best superiors that I ever worked with, he is helpful, 
-                  patient and hardworking. It never felt like that he was my boss but my leader in work. 
-                  A great solution designer, developer, project and team manager, communicator and ally."
-                </blockquote>
-              </div>
-              <div className="testimonial-author">
-                <div className="author-info">
-                  <h4>Barnabas Laczko</h4>
-                  <p>Senior Software QA Engineer at Dalux</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* What's Next Section */}
       <section className="next-steps-section">
         <div className="container">
