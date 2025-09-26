@@ -13,15 +13,15 @@ export default function HeroBackground() {
   const [anchors, setAnchors] = useState<{ x: number; y: number; label: string }[]>([]);
 
   const particleCount = 140;     // tune: 100–200
-  const linkDistance2 = 180 * 180; // squared; 140–220 looks nice
-  const maxLinksPer = 4;         // sparsity
+  const linkDistance2 = 130 * 130; // squared; calmer connections
+  const maxLinksPer = 2;         // sparsity
   
-  // Time-based motion constants
-  const SPEED = 0.025;            // was 0.15 — huge. 0.03–0.06 is nice.
-  const MAX_SPEED = 0.18;         // clamp px/ms in device pixels
-  const DAMPING = 0.785;          // 0.98–0.992 feels smooth
-  const BREATH = 0.006;           // noise/"breath" force scale
-  const PULSE_SPEED = 1.5;        // slower pulsing dots
+  // Calm motion constants - Japanese-modern aesthetic
+  const SPEED = 0.01;            // overall drift - much slower
+  const MAX_SPEED = 0.10;        // cap velocity - calmer
+  const DAMPING = 0.997;         // floaty - more damping
+  const BREATH = 0.0025;         // micro-wiggle - subtle
+  const PULSE_SPEED = 0.9;       // dot twinkle rate - slower
 
   // reduced-motion?
   const prefersReduced = useMemo(() => {
@@ -80,12 +80,12 @@ export default function HeroBackground() {
       const dtSec = dt / 1000;                      // seconds
       last = now;
 
-      // backdrop gradient
-      const g = ctx.createLinearGradient(0, 0, 0, h);
-      g.addColorStop(0, "#0b1220");
-      g.addColorStop(1, "#0e0f1a");
-      ctx.fillStyle = g;
-      ctx.fillRect(0, 0, w, h);
+          // Japanese-modern backdrop gradient
+          const g = ctx.createLinearGradient(0, 0, 0, h);
+          g.addColorStop(0, "#0B1220"); // zen-deep-indigo
+          g.addColorStop(1, "#0E0F1A"); // zen-ink
+          ctx.fillStyle = g;
+          ctx.fillRect(0, 0, w, h);
 
       // optional tiny grain
       ctx.globalAlpha = 0.05;
@@ -136,9 +136,9 @@ export default function HeroBackground() {
           const d2 = dx*dx + dy*dy;
           if (d2 < linkDistance2) {
             const t = 1 - d2 / linkDistance2;
-            const alpha = Math.min(0.7, 0.15 + t*0.6);
-            const width = 0.6 + t * 1.8;
-            ctx.strokeStyle = `rgba(162, 90, 255, ${alpha})`; // plum
+                const alpha = Math.min(0.5, 0.1 + t*0.4);
+                const width = 0.4 + t * 1.2;
+                ctx.strokeStyle = `rgba(162, 90, 255, ${alpha})`; // murasaki
             ctx.lineWidth = width;
             ctx.beginPath();
             ctx.moveTo(pts[i].x, pts[i].y);
@@ -150,21 +150,21 @@ export default function HeroBackground() {
         }
       }
 
-      // dots (slower pulse)
-      for (const p of pts) {
-        const pulse = prefersReduced ? 1 : (0.75 + 0.25 * Math.sin(p.life * PULSE_SPEED + (p.x+p.y) * 0.00035));
-        ctx.fillStyle = `rgba(210, 180, 255, ${0.35 + 0.45*pulse})`;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 1.0 + 1.5*pulse, 0, Math.PI*2);
-        ctx.fill();
-        if (p.anchor) {
-          ctx.strokeStyle = "rgba(180, 120, 255, 0.65)";
-          ctx.lineWidth = 1.0;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, 3.5, 0, Math.PI*2);
-          ctx.stroke();
-        }
-      }
+          // dots (calm pulse)
+          for (const p of pts) {
+            const pulse = prefersReduced ? 1 : (0.8 + 0.2 * Math.sin(p.life * PULSE_SPEED + (p.x+p.y) * 0.0002));
+            ctx.fillStyle = `rgba(235, 235, 255, ${0.3 + 0.3*pulse})`; // off-white with subtle pulse
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 0.8 + 1.2*pulse, 0, Math.PI*2);
+            ctx.fill();
+            if (p.anchor) {
+              ctx.strokeStyle = "rgba(162, 90, 255, 0.4)"; // murasaki accent
+              ctx.lineWidth = 0.8;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, 3.0, 0, Math.PI*2);
+              ctx.stroke();
+            }
+          }
 
       // update overlay tags occasionally (not every frame)
       if ((performance.now() % 500) < 16) readAnchors();
@@ -191,23 +191,14 @@ function FloatingTag({ x, y, label }: { x: number; y: number; label: string }) {
   // convert device pixels back to CSS px
   const px = x / devicePixelRatio;
   const py = y / devicePixelRatio;
-  const drift = 2 * Math.sin((x + y) * 0.001 + performance.now()*0.0005); // much slower drift
 
   return (
     <div
+      className="zenova-tag"
       style={{
         position: "absolute",
-        left: px + 10, top: py - 10 + drift,
-        transform: "translate(-50%, -50%)",
-        padding: "6px 10px",
-        borderRadius: 999,
-        fontSize: 12,
-        letterSpacing: 0.3,
-        color: "rgba(235,235,255,0.92)",
-        background: "rgba(26, 18, 40, 0.55)",
-        border: "1px solid rgba(168, 120, 255, 0.35)",
-        backdropFilter: "blur(4px)",
-        pointerEvents: "none",
+        left: px + 10, 
+        top: py - 10,
         whiteSpace: "nowrap"
       }}
     >
