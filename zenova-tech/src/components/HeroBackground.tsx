@@ -17,11 +17,11 @@ export default function HeroBackground() {
   const maxLinksPer = 4;         // sparsity
   
   // Time-based motion constants
-  const SPEED = 0.015;            // was 0.15 — huge. 0.03–0.06 is nice.
-  const MAX_SPEED = 0.12;         // clamp px/ms in device pixels
-  const DAMPING = 0.585;          // 0.98–0.992 feels smooth
-  const BREATH = 0.002;           // noise/"breath" force scale
-  const PULSE_SPEED = 1.2;        // slower pulsing dots
+  const SPEED = 0.025;            // was 0.15 — huge. 0.03–0.06 is nice.
+  const MAX_SPEED = 0.18;         // clamp px/ms in device pixels
+  const DAMPING = 0.785;          // 0.98–0.992 feels smooth
+  const BREATH = 0.006;           // noise/"breath" force scale
+  const PULSE_SPEED = 1.5;        // slower pulsing dots
 
   // reduced-motion?
   const prefersReduced = useMemo(() => {

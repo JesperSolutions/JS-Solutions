@@ -188,7 +188,7 @@ const Contact = () => {
                   </div>
                   <div className="contact-method-content">
                     <h3>Telefon</h3>
-                    <p>+45 XX XX XX XX</p>
+                    <p>+45 42 33 39 90</p>
                     <span className="contact-note">
                       Ring mellem 9:00-17:00 på hverdage
                     </span>
