@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
+import Testimonials from '../components/Testimonials';
 import { Link } from 'react-router-dom';
 import { Sparkles } from 'lucide-react';
 
@@ -24,6 +25,9 @@ const Home = () => {
 
           {/* Services Section */}
           <Services />
+
+          {/* Testimonials Section */}
+          <Testimonials />
 
           {/* CTA Section */}
           <section className="cta">

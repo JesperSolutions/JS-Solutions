@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Code, Users, Target, MapPin, Calendar, ArrowRight, Lightbulb, Rocket, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PerformanceMetrics from '../components/PerformanceMetrics';
 
 const About = () => {
   return (
@@ -253,6 +254,9 @@ const About = () => {
               </div>
             </div>
           </section>
+
+          {/* Performance Metrics Section */}
+          <PerformanceMetrics />
 
           {/* What's Next Section */}
           <section className="next-steps-section">
