@@ -1,52 +1,70 @@
-/* ZENOVA TECH - Japanese Future Startup Experience */
-/* Where Japan meets the future meets startup inspiration */
+/* ZENOVA TECH - 2070 Japanese White Clean Professionalism */
+/* Where Zen meets the future meets Japanese minimalism */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@200;300;400;500;600;700&family=Noto+Sans+JP:wght@200;300;400;500;600;700&display=swap');
 
-/* Japanese Future Color Palette */
+/* 2070 Japanese White Clean Color Palette */
 :root {
-  /* Deep Cosmic Blues - The infinite space of possibility */
-  --cosmic-deep: #0F172A;
-  --cosmic-dark: #1E293B;
-  --cosmic-medium: #334155;
-  --cosmic-light: #475569;
+  /* Japanese White Clean - Ma (間) - Intentional white space */
+  --zen-white: #FFFFFF;
+  --zen-off-white: #FAFAFA;
+  --zen-gray-50: #F8FAFC;
+  --zen-gray-100: #F1F5F9;
+  --zen-gray-200: #E2E8F0;
+  --zen-gray-300: #CBD5E1;
+  --zen-gray-400: #94A3B8;
+  --zen-gray-500: #64748B;
+  --zen-gray-600: #475569;
+  --zen-gray-700: #334155;
+  --zen-gray-800: #1E293B;
+  --zen-gray-900: #0F172A;
   
-  /* Electric Purples - The energy of transformation */
-  --nova-purple: #7C3AED;
-  --nova-bright: #A855F7;
-  --nova-light: #C084FC;
-  --nova-pale: #E9D5FF;
+  /* Futuristic Accents - Subtle holographic elements */
+  --zen-glow: rgba(255, 255, 255, 0.1);
+  --zen-shadow: rgba(0, 0, 0, 0.02);
+  --zen-border: rgba(255, 255, 255, 0.1);
+  --zen-border-subtle: rgba(255, 255, 255, 0.05);
+  --zen-border-strong: rgba(255, 255, 255, 0.2);
   
-  /* Zen Greens - Growth, balance, harmony */
-  --zen-deep: #059669;
-  --zen-bright: #10B981;
-  --zen-light: #34D399;
-  --zen-pale: #D1FAE5;
+  /* Legacy support for existing components */
+  --cosmic-deep: var(--zen-gray-900);
+  --cosmic-dark: var(--zen-gray-800);
+  --cosmic-medium: var(--zen-gray-700);
+  --cosmic-light: var(--zen-gray-600);
   
-  /* Stellar Whites - Pure clarity and focus */
-  --stellar-white: #FFFFFF;
-  --stellar-off: #F8FAFC;
-  --stellar-gray: #F1F5F9;
+  --stellar-white: var(--zen-white);
+  --stellar-off: var(--zen-off-white);
+  --stellar-gray: var(--zen-gray-200);
   
-  /* Golden Accents - The spark of innovation */
-  --golden-bright: #F59E0B;
-  --golden-medium: #D97706;
-  --golden-light: #FCD34D;
-  --golden-pale: #FEF3C7;
+  --nova-purple: var(--zen-gray-400);
+  --nova-bright: var(--zen-gray-300);
+  --nova-light: var(--zen-gray-200);
+  --nova-pale: var(--zen-gray-100);
   
-  /* Japanese Future Colors */
-  --japan-red: #DC2626;
-  --japan-gold: #F59E0B;
-  --neon-blue: #00D4FF;
-  --neon-pink: #FF0080;
-  --cyber-green: #00FF88;
+  --zen-deep: var(--zen-gray-500);
+  --zen-bright: var(--zen-gray-400);
+  --zen-light: var(--zen-gray-300);
+  --zen-pale: var(--zen-gray-100);
   
-  /* Advanced Gradients */
-  --cosmic-gradient: linear-gradient(135deg, var(--cosmic-deep) 0%, var(--cosmic-dark) 50%, var(--nova-purple) 100%);
-  --zen-gradient: linear-gradient(135deg, var(--zen-deep) 0%, var(--zen-bright) 50%, var(--zen-light) 100%);
-  --nova-gradient: linear-gradient(135deg, var(--nova-purple) 0%, var(--nova-bright) 50%, var(--golden-bright) 100%);
-  --japan-gradient: linear-gradient(135deg, var(--japan-red) 0%, var(--japan-gold) 50%, var(--neon-blue) 100%);
-  --future-gradient: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-pink) 50%, var(--cyber-green) 100%);
+  --golden-bright: var(--zen-gray-400);
+  --golden-medium: var(--zen-gray-500);
+  --golden-light: var(--zen-gray-300);
+  --golden-pale: var(--zen-gray-100);
+  
+  --japan-red: var(--zen-gray-500);
+  --japan-gold: var(--zen-gray-400);
+  --neon-blue: var(--zen-gray-400);
+  --neon-pink: var(--zen-gray-400);
+  --cyber-green: var(--zen-gray-400);
+  
+  /* 2070 Gradients - Subtle, professional */
+  --zen-gradient: linear-gradient(135deg, var(--zen-white) 0%, var(--zen-off-white) 100%);
+  --zen-gradient-dark: linear-gradient(135deg, var(--zen-gray-900) 0%, var(--zen-gray-800) 100%);
+  --zen-gradient-subtle: linear-gradient(135deg, var(--zen-gray-50) 0%, var(--zen-gray-100) 100%);
+  --cosmic-gradient: var(--zen-gradient-dark);
+  --nova-gradient: var(--zen-gradient-subtle);
+  --japan-gradient: var(--zen-gradient-subtle);
+  --future-gradient: var(--zen-gradient-subtle);
 }
 
 /* Reset and Base */
@@ -57,11 +75,82 @@
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
-  background: var(--cosmic-deep);
-  color: var(--stellar-white);
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  font-weight: 300; /* Light weight for elegance */
   line-height: 1.6;
+  letter-spacing: -0.01em; /* Tighter spacing for modern feel */
+  color: var(--zen-gray-900);
+  background: var(--zen-gradient);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2070 Japanese Typography Scale */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif;
+  font-weight: 200; /* Ultra-light for futuristic feel */
+  letter-spacing: -0.05em;
+  line-height: 1.1;
+  color: var(--zen-gray-900);
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 200;
+  letter-spacing: -0.08em;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 200;
+  letter-spacing: -0.06em;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: -0.04em;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+p {
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--zen-gray-600);
+}
+
+/* 2070 Japanese Clean Components */
+.zen-card {
+  background: var(--zen-white);
+  border: 1px solid var(--zen-border-subtle);
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.zen-card:hover {
+  border-color: var(--zen-border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
 /* JAPANESE FUTURE: Multi-layered Background with Japanese Elements */
@@ -125,11 +214,11 @@ body::after {
   to { transform: rotate(360deg); }
 }
 
-/* Professional Header */
+/* 2070 Japanese Clean Header */
 header {
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+  border-bottom: 1px solid var(--zen-border-subtle);
   padding: 1rem 0;
   position: fixed;
   top: 0;
@@ -137,12 +226,12 @@ header {
   right: 0;
   z-index: 1000;
   transition: all 0.3s ease;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 header.scrolled {
-  background: rgba(15, 23, 42, 0.98);
-  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.1);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
 nav {
@@ -158,13 +247,14 @@ nav {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif;
   font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--stellar-white);
+  font-weight: 200; /* Ultra-light for futuristic feel */
+  color: var(--zen-gray-900);
   text-decoration: none;
   transition: all 0.3s ease;
   position: relative;
+  letter-spacing: -0.02em;
 }
 
 .logo::before {
@@ -174,7 +264,7 @@ nav {
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: var(--nova-gradient);
+  background: var(--zen-gradient-subtle);
   border-radius: 0.5rem;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -182,25 +272,25 @@ nav {
 }
 
 .logo:hover::before {
-  opacity: 0.1;
+  opacity: 0.3;
 }
 
 .logo:hover {
-  transform: scale(1.05);
-  text-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+  transform: scale(1.02);
 }
 
 .logo-icon {
   width: 2rem;
   height: 2rem;
-  background: var(--nova-gradient);
+  background: var(--zen-gray-900);
   border-radius: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--stellar-white);
-  font-weight: 900;
-  animation: zen-pulse 3s ease-in-out infinite;
+  color: var(--zen-white);
+  font-weight: 200;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
 }
 
 @keyframes zen-pulse {
@@ -221,13 +311,14 @@ nav {
 }
 
 .nav-links a {
-  color: var(--stellar-white);
+  color: var(--zen-gray-700);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 300; /* Light weight for elegance */
   font-size: 0.95rem;
   transition: all 0.3s ease;
   position: relative;
   padding: 0.5rem 0;
+  letter-spacing: -0.01em;
 }
 
 .nav-links a::after {
@@ -236,14 +327,13 @@ nav {
   bottom: 0;
   left: 0;
   width: 0;
-  height: 2px;
-  background: var(--nova-gradient);
+  height: 1px;
+  background: var(--zen-gray-400);
   transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: var(--stellar-white);
-  text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+  color: var(--zen-gray-900);
 }
 
 .nav-links a:hover::after {
@@ -322,23 +412,25 @@ nav {
 /* Main Content */
 main {
   margin-top: 80px;
+  background: var(--zen-gradient);
 }
 
-/* Canvas Particle Field Hero Section */
+/* 2070 Japanese White Clean Hero Section */
 .hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: transparent; /* Canvas handles background */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--zen-gradient);
+  border-bottom: 1px solid var(--zen-border-subtle);
 }
 
 .hero-content {
   position: relative;
   z-index: 10;
   max-width: 600px;
+  padding: 2rem 0;
 }
 
 /* JAPANESE FUTURE: Layered Background Effects */
@@ -403,15 +495,15 @@ main {
   z-index: 2;
 }
 
-/* JAPANESE FUTURE: Refined Text Animations */
+/* 2070 Japanese Clean Text Styling */
 .hero-content h1 {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif;
   font-size: 4rem;
-  font-weight: 800;
+  font-weight: 200; /* Ultra-light for futuristic feel */
   line-height: 1.1;
   margin-bottom: 2rem;
-  color: #ECEAF7; /* Paper off-white */
-  text-shadow: 0 0 20px rgba(236, 234, 247, 0.3);
+  color: var(--zen-gray-900);
+  letter-spacing: -0.08em;
   position: relative;
 }
 
@@ -422,13 +514,13 @@ main {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--stellar-white) 0%, var(--nova-light) 50%, var(--golden-light) 100%);
+  background: linear-gradient(135deg, var(--zen-gray-900) 0%, var(--zen-gray-600) 50%, var(--zen-gray-400) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: blur(2px);
-  opacity: 0.3;
-  animation: text-glow 2s ease-in-out infinite alternate;
+  filter: blur(1px);
+  opacity: 0.1;
+  animation: text-glow 3s ease-in-out infinite alternate;
 }
 
 @keyframes nova-glow {
@@ -445,17 +537,14 @@ main {
   100% { opacity: 0.6; transform: scale(1.02); }
 }
 
-/* Clean Japanese Professional Brand Styling */
+/* 2070 Japanese Clean Brand Styling */
 .hero-content .zenova-brand {
   font-size: 5rem;
-  font-weight: 900;
-  color: #ECEAF7; /* Paper off-white */
-  text-shadow: 
-    0 0 10px rgba(236, 234, 247, 0.5),
-    0 0 20px rgba(236, 234, 247, 0.3),
-    0 0 30px rgba(236, 234, 247, 0.1);
+  font-weight: 200; /* Ultra-light for futuristic feel */
+  color: var(--zen-gray-900);
   position: relative;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.05em;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
 }
 
 .hero-content .zenova-brand::after {
@@ -463,13 +552,13 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-  background: var(--nova-gradient);
+  background: linear-gradient(135deg, var(--zen-gray-900) 0%, var(--zen-gray-600) 50%, var(--zen-gray-400) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: blur(1px);
-  opacity: 0.3;
-  animation: brand-echo 3s ease-in-out infinite;
+  filter: blur(0.5px);
+  opacity: 0.2;
+  animation: brand-glow 4s ease-in-out infinite alternate;
 }
 
 @keyframes zenova-pulse {
@@ -561,23 +650,24 @@ main {
   to { opacity: 1; transform: translateX(0); }
 }
 
-/* Clean Japanese Professional Buttons */
+/* 2070 Japanese Clean Buttons */
 .btn-primary {
-  background: #FFFFFF;
-  color: #0F172A;
+  background: var(--zen-white);
+  color: var(--zen-gray-900);
   padding: 1rem 2rem;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 300; /* Light weight for elegance */
   font-size: 1rem;
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   position: relative;
   overflow: hidden;
-  border: 2px solid #FFFFFF;
+  border: 1px solid var(--zen-border-subtle);
+  letter-spacing: -0.01em;
 }
 
 .btn-primary::before {
@@ -587,7 +677,7 @@ main {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   transition: left 0.5s ease;
 }
 
@@ -596,33 +686,35 @@ main {
 }
 
 .btn-primary:hover {
-  background: #F8FAFC;
-  color: #0F172A;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+  background: var(--zen-off-white);
+  color: var(--zen-gray-900);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border-color: var(--zen-border);
 }
 
 .btn-secondary {
   background: transparent;
-  color: #FFFFFF;
+  color: var(--zen-gray-900);
   padding: 1rem 2rem;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 300; /* Light weight for elegance */
   font-size: 1rem;
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
   transition: all 0.3s ease;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--zen-border);
   backdrop-filter: blur(10px);
+  letter-spacing: -0.01em;
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+  background: var(--zen-gray-50);
+  border-color: var(--zen-border-strong);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
 /* JAPANESE FUTURE: Multi-layered Cosmic Visual */
