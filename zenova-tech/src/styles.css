@@ -40,15 +40,15 @@
 /* Enhanced Color Contrast for Better Readability */
 [data-theme="light"] {
   /* Light Mode - Enhanced Contrast */
-  --ink-900: #0F172A;   /* Darker for better contrast */
-  --ink-800: #1E293B;
-  --ink-700: #334155;
+  --ink-900: #0A0F1A;   /* Even darker for maximum contrast */
+  --ink-800: #1A1F2A;
+  --ink-700: #2A2F3A;
   --plum-400: #A855F7;  /* More vibrant */
   --plum-500: #9333EA;  /* Stronger purple */
   --paper: #F8FAFC;     /* Slightly darker for better contrast */
   --paper-weak: rgba(248,250,252,.85);
   --glass: rgba(255,255,255,.95);
-  --stroke: rgba(147,51,234,.2);  /* More visible borders */
+  --stroke: rgba(147,51,234,.25);  /* More visible borders */
   
   /* Light Mode Specific Variables - Enhanced */
   --zen-white: #FFFFFF;
@@ -62,7 +62,7 @@
   --zen-gray-700: #334155;
   --zen-gray-800: #1E293B;
   --zen-gray-900: #0F172A;
-  --zen-border-subtle: rgba(0,0,0,0.12);  /* More visible borders */
+  --zen-border-subtle: rgba(0,0,0,0.15);  /* More visible borders */
 }
 
 /* Theme Toggle Styles */
@@ -1623,7 +1623,7 @@ nav {
   gap: 0.75rem;
   font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif;
   font-size: 1.5rem;
-  font-weight: 200; /* Ultra-light for futuristic feel */
+  font-weight: 300; /* Light but readable */
   color: var(--zen-gray-900);
   text-decoration: none;
   transition: all 0.3s ease;
@@ -1800,16 +1800,6 @@ main {
   overflow: hidden;
 }
 
-.section-hero .watermark {
-  position: absolute;
-  inset: auto auto 10% 8%;
-  font-weight: 700;
-  font-size: clamp(56px, 10vw, 120px);
-  letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.08);
-  pointer-events: none;
-  user-select: none;
-}
 
 .section-hero::before {
   content: "";
@@ -1858,18 +1848,18 @@ main {
 }
 
 .hero-content h1 {
-  color: var(--zen-gray-900);  /* Stronger contrast */
-  text-shadow: 0 2px 4px rgba(0,0,0,0.1);  /* Text shadow for readability */
+  color: var(--ink-900);  /* Maximum contrast */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.15);  /* Stronger text shadow */
 }
 
 .hero-content .zenova-brand {
-  text-shadow: 0 0 20px rgba(147,51,234,0.3);
-  filter: drop-shadow(0 0 1px rgba(147,51,234,0.5));
+  text-shadow: 0 0 20px rgba(147,51,234,0.4);
+  filter: drop-shadow(0 0 2px rgba(147,51,234,0.6));
 }
 
 .hero-content p {
-  color: var(--zen-gray-700);  /* Better contrast */
-  text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  color: var(--ink-800);  /* Much better contrast */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 /* Soften lines behind text (radial vignette) */
@@ -2388,7 +2378,7 @@ main {
 .hero-content h1 {
   font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif;
   font-size: 4rem;
-  font-weight: 200; /* Ultra-light for futuristic feel */
+  font-weight: 300; /* Light but readable */
   line-height: 1.1;
   margin-bottom: 2rem;
   color: var(--zen-gray-900);
