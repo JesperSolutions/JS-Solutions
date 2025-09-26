@@ -1,0 +1,85 @@
+name: Zenova Tech - Deploy to Firebase
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches: [main]
+
+jobs:
+  deploy-preview:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to Firebase Preview
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          channelId: 'pr-${{ github.event.number }}'
+          projectId: 'jesper-aggerholm-site'
+
+      - name: Comment Preview URL
+        uses: actions/github-script@v7
+        if: success()
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `🚀 **Preview deployed successfully!**
+              
+              **Preview URL**: https://zenova-tech--pr-${{ github.event.number }}.web.app
+              **Production**: https://zenova-tech.web.app
+              
+              The Canvas particle field with zen-garden calm motion is now live! 🧘✨`
+            })
+
+  deploy-production:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to Firebase Production
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          projectId: 'jesper-aggerholm-site'
+
+      - name: Deploy Success Notification
+        if: success()
+        run: |
+          echo "🎉 Production deployment successful!"
+          echo "🌐 Live URL: https://zenova-tech.web.app"
+          echo "🧘 Zen-garden calm Canvas particle field is now live!"

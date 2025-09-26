@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "jesper-aggerholm-site"
+  },
+  "targets": {
+    "jesper-aggerholm-site": {
+      "hosting": {
+        "zenova-tech": [
+          "zenova-tech"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
