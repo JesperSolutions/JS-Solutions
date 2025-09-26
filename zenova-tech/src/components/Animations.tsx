@@ -2,29 +2,35 @@ import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import type { ReactNode } from 'react';
 
-// Animation variants
+// Smooth fade animation variants - zen-like transitions
 export const fadeInUp: Variants = {
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 10 },
   animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -20 }
+  exit: { opacity: 0, y: 10 }
 };
 
 export const fadeInLeft: Variants = {
-  initial: { opacity: 0, x: -20 },
+  initial: { opacity: 0, x: -10 },
   animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: 20 }
+  exit: { opacity: 0, x: -10 }
 };
 
 export const fadeInRight: Variants = {
-  initial: { opacity: 0, x: 20 },
+  initial: { opacity: 0, x: 10 },
   animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -20 }
+  exit: { opacity: 0, x: 10 }
 };
 
 export const scaleIn: Variants = {
-  initial: { opacity: 0, scale: 0.8 },
+  initial: { opacity: 0, scale: 0.98 },
   animate: { opacity: 1, scale: 1 },
-  exit: { opacity: 0, scale: 0.8 }
+  exit: { opacity: 0, scale: 0.98 }
+};
+
+export const fadeIn: Variants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 }
 };
 
 export const staggerContainer: Variants = {
@@ -37,7 +43,7 @@ export const staggerContainer: Variants = {
 };
 
 export const staggerItem: Variants = {
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 10 },
   animate: { opacity: 1, y: 0 }
 };
 
@@ -60,17 +66,17 @@ export const cardHover = {
   transition: { duration: 0.3 }
 };
 
-// Page transition variants
+// Page transition variants - smooth fade only
 export const pageVariants: Variants = {
-  initial: { opacity: 0, x: 20 },
-  in: { opacity: 1, x: 0 },
-  out: { opacity: 0, x: -20 }
+  initial: { opacity: 0 },
+  in: { opacity: 1 },
+  out: { opacity: 0 }
 };
 
 export const pageTransition = {
   type: "tween" as const,
-  ease: "anticipate" as const,
-  duration: 0.4
+  ease: "easeInOut" as const,
+  duration: 0.6
 };
 
 // Reusable animated components
@@ -92,7 +98,11 @@ export const AnimatedDiv = ({
     initial="initial"
     animate="animate"
     exit="exit"
-    transition={{ delay }}
+    transition={{ 
+      delay,
+      duration: 0.6,
+      ease: "easeInOut"
+    }}
     className={className}
   >
     {children}
@@ -141,7 +151,11 @@ export const AnimatedCard = ({
     initial="initial"
     animate="animate"
     whileHover={cardHover}
-    transition={{ delay }}
+    transition={{ 
+      delay,
+      duration: 0.6,
+      ease: "easeInOut"
+    }}
   >
     {children}
   </motion.div>
