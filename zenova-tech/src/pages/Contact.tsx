@@ -129,32 +129,73 @@ const Contact = () => {
         <meta name="keywords" content="kontakt, IT-rådgivning, ESG, AI, projektledelse, Danmark" />
       </Helmet>
 
-      {/* Hero Section - Cosmic Theme */}
-      <section className="hero">
+      {/* Enhanced Hero Section */}
+      <section className="hero contact-hero">
         <div className="container">
           <div className="hero-content">
             <div className="hero-tagline">
               <Mail size={20} />
-              <span>Kom i kontakt</span>
+              <span>Lad os skabe sammen</span>
             </div>
             
             <h1>
-              Lad os <span className="zenova-brand">skabe</span> sammen
+              Lad os{' '}
+              <span className="zenova-brand">skabe</span>
+              <br />
+              sammen
             </h1>
             
-            <p>
-              Har du et projekt eller en udfordring, jeg kan hjælpe med? 
-              Lad os sammen finde ud af, hvordan vi kan skabe værdi og 
-              implementere løsninger der virker i praksis.
+            <p className="hero-description">
+              Har du et projekt eller en udfordring, jeg kan hjælpe med? Lad os sammen finde ud af, 
+              hvordan vi kan skabe værdi og implementere løsninger der virker i praksis.
             </p>
+            
+            <div className="contact-stats">
+              <div className="stat-item">
+                <span className="stat-number">24h</span>
+                <span className="stat-label">Svartid</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">100%</span>
+                <span className="stat-label">Diskretion</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">5+</span>
+                <span className="stat-label">År erfaring</span>
+              </div>
+            </div>
+            
+            <div className="buttons">
+              <a href="tel:+4542333990" className="btn-primary">
+                Ring nu
+                <Phone size={18} />
+              </a>
+              <a href="mailto:jesper@zenova-tech.dk" className="btn-secondary">
+                Send email
+                <Mail size={18} />
+              </a>
+            </div>
           </div>
 
           <div className="hero-visual">
-            <div className="contact-visual">
-              <div className="contact-icon">
-                <Mail size={48} />
+            <div className="contact-preview">
+              <div className="contact-card">
+                <div className="contact-icon">
+                  <Mail size={48} />
+                </div>
+                <h3>Kom i kontakt</h3>
+                <p>Lad os diskutere dit projekt</p>
+                <div className="contact-info">
+                  <div className="contact-item">
+                    <Phone size={16} />
+                    <span>+45 42 33 39 90</span>
+                  </div>
+                  <div className="contact-item">
+                    <Mail size={16} />
+                    <span>jesper@zenova-tech.dk</span>
+                  </div>
+                </div>
               </div>
-              <div className="contact-glow"></div>
             </div>
           </div>
         </div>

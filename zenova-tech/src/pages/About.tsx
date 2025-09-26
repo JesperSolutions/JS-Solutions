@@ -14,8 +14,8 @@ const About = () => {
         <meta name="keywords" content="Jesper Aggerholm, tech lead, løsningsarkitekt, IT-teknolog, Danmark" />
       </Helmet>
 
-      {/* Hero Section - Cosmic Theme */}
-      <section className="hero">
+      {/* Enhanced Hero Section */}
+      <section className="hero about-hero">
         <div className="container">
           <div className="hero-content">
             <div className="hero-tagline">
@@ -28,7 +28,7 @@ const About = () => {
               <span className="zenova-brand">Jesper</span>
             </h1>
             
-            <p>
+            <p className="hero-description">
               Med passion for at omsætte komplekse udfordringer til konkrete, skalerbare løsninger. 
               Jeg trives, når tingene er svære – for netop dér kan vi flytte grænser og skabe resultater 
               der transformerer din virksomhed.
@@ -70,7 +70,11 @@ const About = () => {
                   </div>
                   <div className="avatar-glow"></div>
                 </div>
-                <p className="profile-text">Profilbillede kommer snart</p>
+                <div className="profile-info">
+                  <h3>Jesper Aggerholm</h3>
+                  <p className="profile-title">Tech Lead & Løsningsarkitekt</p>
+                  <p className="profile-company">Binné Danmark</p>
+                </div>
                 <div className="profile-stats">
                   <div className="stat-item">
                     <span className="stat-number">5+</span>
@@ -79,6 +83,10 @@ const About = () => {
                   <div className="stat-item">
                     <span className="stat-number">20+</span>
                     <span className="stat-label">Projekter</span>
+                  </div>
+                  <div className="stat-item">
+                    <span className="stat-number">100%</span>
+                    <span className="stat-label">Fokus på kvalitet</span>
                   </div>
                 </div>
               </div>

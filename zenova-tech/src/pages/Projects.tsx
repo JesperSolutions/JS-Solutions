@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { ExternalLink, Github, ArrowRight, Code, Users, Target, Rocket, Lightbulb, ShieldCheck, Zap } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight, Code, Users, Rocket, Lightbulb, ShieldCheck, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Projects = () => {
@@ -157,32 +157,75 @@ const Projects = () => {
         <meta name="keywords" content="projekter, portfolio, AI, ESG, digital transformation, systemarkitektur, Danmark" />
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="hero">
+      {/* Enhanced Hero Section */}
+      <section className="hero projects-hero">
         <div className="container">
           <div className="hero-content">
             <div className="hero-tagline">
-              <Code size={20} />
-              <span>Mine projekter</span>
+              <Rocket size={20} />
+              <span>Innovation i praksis</span>
             </div>
             
             <h1>
-              Fra <span className="zenova-brand">idé</span> til løsning
+              Mine{' '}
+              <span className="zenova-brand">Projekter</span>
             </h1>
             
-            <p>
-              Udforsk mine seneste projekter inden for AI-integration, ESG-compliance, 
-              digital transformation og systemarkitektur. Hver løsning er skræddersyet 
-              til at skabe reel værdi og drive innovation fremad.
+            <p className="hero-description">
+              Udforsk mine seneste projekter inden for AI-integration, ESG-compliance og digital transformation. 
+              Hver løsning er designet til at skabe reel værdi og drive innovation fremad.
             </p>
+            
+            <div className="project-stats">
+              <div className="stat-item">
+                <span className="stat-number">15+</span>
+                <span className="stat-label">Afsluttede projekter</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">5</span>
+                <span className="stat-label">År erfaring</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">100%</span>
+                <span className="stat-label">Kundetilfredshed</span>
+              </div>
+            </div>
+            
+            <div className="buttons">
+              <Link to="/contact" className="btn-primary">
+                Start et projekt
+                <ArrowRight size={18} />
+              </Link>
+              <Link to="/about" className="btn-secondary">
+                Læs om mig
+                <Users size={18} />
+              </Link>
+            </div>
           </div>
 
           <div className="hero-visual">
-            <div className="projects-visual">
-              <div className="project-icon">
-                <Target size={48} />
+            <div className="projects-preview">
+              <div className="preview-card">
+                <div className="preview-icon">
+                  <Lightbulb size={32} />
+                </div>
+                <h3>AI Integration</h3>
+                <p>Moderne AI-løsninger</p>
               </div>
-              <div className="project-glow"></div>
+              <div className="preview-card">
+                <div className="preview-icon">
+                  <ShieldCheck size={32} />
+                </div>
+                <h3>ESG Compliance</h3>
+                <p>Bæredygtige strategier</p>
+              </div>
+              <div className="preview-card">
+                <div className="preview-icon">
+                  <Zap size={32} />
+                </div>
+                <h3>Digital Transformation</h3>
+                <p>Skalerbare løsninger</p>
+              </div>
             </div>
           </div>
         </div>

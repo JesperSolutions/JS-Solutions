@@ -128,32 +128,62 @@ const Blog = () => {
         <meta name="keywords" content="blog, AI, ESG, digital transformation, systemarkitektur, projektledelse, Danmark" />
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="hero">
+      {/* Enhanced Hero Section */}
+      <section className="hero blog-hero">
         <div className="container">
           <div className="hero-content">
             <div className="hero-tagline">
               <BookOpen size={20} />
-              <span>Mine insights</span>
+              <span>Fra idé til viden</span>
             </div>
             
             <h1>
-              Fra <span className="zenova-brand">idé</span> til viden
+              Mine{' '}
+              <span className="zenova-brand">Insights</span>
             </h1>
             
-            <p>
-              Udforsk mine artikler om AI-integration, ESG-compliance, digital transformation 
-              og moderne systemarkitektur. Praktiske insights der hjælper dig med at navigere 
-              i den digitale fremtid.
+            <p className="hero-description">
+              Udforsk mine artikler om AI-integration, ESG-compliance, digital transformation og moderne systemarkitektur. 
+              Praktiske insights der hjælper dig med at navigere i den digitale fremtid.
             </p>
+            
+            <div className="blog-stats">
+              <div className="stat-item">
+                <span className="stat-number">12+</span>
+                <span className="stat-label">Artikler</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">5K+</span>
+                <span className="stat-label">Læsere</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">4.9</span>
+                <span className="stat-label">Rating</span>
+              </div>
+            </div>
+            
+            <div className="buttons">
+              <Link to="/contact" className="btn-primary">
+                Abonner på opdateringer
+                <ArrowRight size={18} />
+              </Link>
+              <Link to="/projects" className="btn-secondary">
+                Se mine projekter
+                <BookOpen size={18} />
+              </Link>
+            </div>
           </div>
 
           <div className="hero-visual">
-            <div className="blog-visual">
-              <div className="blog-icon">
-                <BookOpen size={48} />
+            <div className="blog-preview">
+              <div className="featured-article">
+                <div className="article-icon">
+                  <BookOpen size={48} />
+                </div>
+                <h3>Seneste artikel</h3>
+                <p>AI-integration i praksis</p>
+                <span className="article-date">15. januar 2024</span>
               </div>
-              <div className="blog-glow"></div>
             </div>
           </div>
         </div>
