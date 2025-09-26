@@ -6,32 +6,48 @@ const Blog = () => {
   const blogPosts = [
     {
       id: 1,
-      title: "AI-integration i praksis: Fra ChatGPT til virksomhedsautomatisering",
-      excerpt: "Lær hvordan du implementerer AI-værktøjer som ChatGPT i din virksomheds daglige arbejde og frigør tid til kreativt arbejde.",
-      content: "I denne artikel dykker vi ned i praktiske eksempler på hvordan AI kan integreres i forskellige forretningsprocesser...",
+      title: "Mastering Cursor IDE: Top 10 Rules for Modern Developers",
+      excerpt: "Learn the essential rules for maximizing productivity with Cursor IDE. From context management to AI-powered development workflows.",
+      content: "After 5 years of professional development and extensive use of AI-powered coding tools, I've distilled the essential rules...",
       author: "Jesper Aggerholm",
-      date: "2024-01-15",
-      readTime: "8 min læsning",
-      category: "AI & Automation",
-      tags: ["AI", "ChatGPT", "Automatisering", "Produktivitet"],
+      date: "2024-01-20",
+      readTime: "12 min læsning",
+      category: "Development",
+      tags: ["Cursor IDE", "AI Development", "Productivity", "TypeScript"],
       featured: true,
+      slug: "cursor-ide-guide",
       image: "/api/placeholder/600/400"
     },
     {
       id: 2,
-      title: "ESG-compliance: Gør din virksomhed klar til L193",
-      excerpt: "Med den nye L193-lov bliver ESG ikke længere valgfrit. Her er din guide til at implementere bæredygtige strategier.",
-      content: "L193 ændrer spillet for danske virksomheder. I denne artikel viser jeg dig hvordan du kommer i gang...",
+      title: "AI-Assisted Development: Beyond ChatGPT Integration",
+      excerpt: "Master AI-assisted development with advanced strategies for building AI-first applications, prompt engineering, and intelligent developer tools.",
+      content: "The future of software development isn't just about using AI tools—it's about building AI-first applications...",
       author: "Jesper Aggerholm",
-      date: "2024-01-10",
-      readTime: "12 min læsning",
-      category: "ESG & Sustainability",
-      tags: ["ESG", "L193", "Bæredygtighed", "Compliance"],
+      date: "2024-01-22",
+      readTime: "15 min læsning",
+      category: "AI & Automation",
+      tags: ["AI Development", "ChatGPT", "Prompt Engineering", "Developer Tools"],
       featured: false,
+      slug: "ai-development-guide",
       image: "/api/placeholder/600/400"
     },
     {
       id: 3,
+      title: "ESG Implementation Guide: From Compliance to Competitive Advantage",
+      excerpt: "Complete guide to ESG implementation: L193 compliance, CSRD requirements, and building sustainable business practices.",
+      content: "ESG is no longer optional—it's a business imperative. With L193 and CSRD requirements coming into effect...",
+      author: "Jesper Aggerholm",
+      date: "2024-01-25",
+      readTime: "18 min læsning",
+      category: "ESG & Sustainability",
+      tags: ["ESG Implementation", "L193 Compliance", "CSRD", "Sustainability"],
+      featured: false,
+      slug: "esg-implementation-guide",
+      image: "/api/placeholder/600/400"
+    },
+    {
+      id: 4,
       title: "Digital transformation: Fra legacy systemer til cloud-native",
       excerpt: "En praktisk guide til at migrere fra gamle systemer til moderne, skalerbare cloud-løsninger der kan vokse med din virksomhed.",
       content: "Digital transformation handler ikke kun om teknologi - det handler om at ændre måden du tænker forretning på...",
@@ -41,10 +57,11 @@ const Blog = () => {
       category: "Digital Transformation",
       tags: ["Cloud", "Migration", "Digitalisering", "Skalerbarhed"],
       featured: false,
+      slug: "digital-transformation-guide",
       image: "/api/placeholder/600/400"
     },
     {
-      id: 4,
+      id: 5,
       title: "Systemarkitektur: Byg løsninger der kan vokse",
       excerpt: "Lær at designe systemer der balancerer enkelhed med performance og tilpasser sig fremtidens behov uden at skulle bygges om.",
       content: "God systemarkitektur er fundamentet for alle succesfulde digitale løsninger. Her er mine principper...",
@@ -54,10 +71,11 @@ const Blog = () => {
       category: "System Architecture",
       tags: ["Arkitektur", "Skalerbarhed", "Performance", "Design"],
       featured: false,
+      slug: "system-architecture-guide",
       image: "/api/placeholder/600/400"
     },
     {
-      id: 5,
+      id: 6,
       title: "Projektledelse i det moderne tech-team",
       excerpt: "Agile metoder, team-udvikling og hvordan du bygger stærke teams der kan levere resultater i en hurtigt ændrende verden.",
       content: "Moderne projektledelse handler om at skabe et miljø hvor innovation kan blomstre...",
@@ -67,30 +85,18 @@ const Blog = () => {
       category: "Project Management",
       tags: ["Projektledelse", "Agile", "Team-udvikling", "Innovation"],
       featured: false,
-      image: "/api/placeholder/600/400"
-    },
-    {
-      id: 6,
-      title: "Innovation i praksis: Fra idé til markedsløsning",
-      excerpt: "Hvordan du accelererer innovation gennem AI-værktøjer, automatisering og strategisk teknologi-implementering.",
-      content: "Innovation er ikke kun om at have gode idéer - det handler om at få dem ud i verden hurtigt...",
-      author: "Jesper Aggerholm",
-      date: "2023-12-15",
-      readTime: "9 min læsning",
-      category: "Innovation & Strategy",
-      tags: ["Innovation", "Strategi", "Markedsføring", "Teknologi"],
-      featured: false,
+      slug: "modern-project-management",
       image: "/api/placeholder/600/400"
     }
   ];
 
   const categories = [
+    "Development",
     "AI & Automation",
     "ESG & Sustainability", 
     "Digital Transformation",
     "System Architecture",
-    "Project Management",
-    "Innovation & Strategy"
+    "Project Management"
   ];
 
   const featuredPost = blogPosts.find(post => post.featured);
@@ -98,12 +104,12 @@ const Blog = () => {
 
   const getCategoryColor = (category: string) => {
     const colors = {
+      "Development": "primary",
       "AI & Automation": "primary",
       "ESG & Sustainability": "secondary", 
       "Digital Transformation": "primary",
       "System Architecture": "secondary",
-      "Project Management": "primary",
-      "Innovation & Strategy": "secondary"
+      "Project Management": "primary"
     };
     return colors[category as keyof typeof colors] || "primary";
   };
@@ -229,7 +235,7 @@ const Blog = () => {
                   ))}
                 </div>
                 
-                <Link to={`/blog/${featuredPost.id}`} className="btn-primary">
+                <Link to={`/blog/${featuredPost.slug}`} className="btn-primary">
                   Læs artikel
                   <ArrowRight size={18} />
                 </Link>
@@ -305,7 +311,7 @@ const Blog = () => {
                   ))}
                 </div>
 
-                <Link to={`/blog/${post.id}`} className="read-more">
+                <Link to={`/blog/${post.slug}`} className="read-more">
                   Læs mere
                   <ArrowRight size={16} />
                 </Link>

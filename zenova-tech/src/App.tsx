@@ -13,6 +13,11 @@ const Projects = lazy(() => import('./pages/Projects'));
 const Blog = lazy(() => import('./pages/Blog'));
 const Contact = lazy(() => import('./pages/Contact'));
 
+// Lazy load blog posts
+const CursorIDEGuide = lazy(() => import('./pages/blog/CursorIDE-Guide'));
+const AIDevelopmentGuide = lazy(() => import('./pages/blog/AI-Development-Guide'));
+const ESGImplementationGuide = lazy(() => import('./pages/blog/ESG-Implementation-Guide'));
+
 // Loading component for Suspense
 const PageLoader = () => (
   <div className="page-loader">
@@ -51,6 +56,9 @@ const AppContent = () => {
               <Route path="/about" element={<AnimatedPage><About /></AnimatedPage>} />
               <Route path="/projects" element={<AnimatedPage><Projects /></AnimatedPage>} />
               <Route path="/blog" element={<AnimatedPage><Blog /></AnimatedPage>} />
+              <Route path="/blog/cursor-ide-guide" element={<AnimatedPage><CursorIDEGuide /></AnimatedPage>} />
+              <Route path="/blog/ai-development-guide" element={<AnimatedPage><AIDevelopmentGuide /></AnimatedPage>} />
+              <Route path="/blog/esg-implementation-guide" element={<AnimatedPage><ESGImplementationGuide /></AnimatedPage>} />
               <Route path="/contact" element={<AnimatedPage><Contact /></AnimatedPage>} />
             </Routes>
           </Suspense>
