@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { ThemeToggle } from './ThemeToggle';
 
 const navLinks = [
   { name: 'Hjem', path: '/' },
@@ -29,10 +30,13 @@ const Header = () => {
           ))}
         </ul>
 
-        <div className="mobile-menu-btn">
-          <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+        <div className="header-actions">
+          <ThemeToggle />
+          <div className="mobile-menu-btn">
+            <button onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </nav>
 

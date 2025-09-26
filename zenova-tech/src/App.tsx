@@ -8,12 +8,14 @@ import Home from './pages/Home';
 import { pageVariants, pageTransition } from './components/Animations';
 import { analytics } from './lib/analytics';
 import { performanceMonitor } from './lib/performance';
+import { ThemeProvider } from './components/ThemeToggle';
 
 // Lazy load pages for code splitting
 const About = lazy(() => import('./pages/About'));
 const Projects = lazy(() => import('./pages/Projects'));
 const Blog = lazy(() => import('./pages/Blog'));
 const Contact = lazy(() => import('./pages/Contact'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Lazy load blog posts
 const CursorIDEGuide = lazy(() => import('./pages/blog/CursorIDE-Guide'));
@@ -81,6 +83,7 @@ const AppContent = () => {
               <Route path="/blog/ai-development-guide" element={<AnimatedPage><AIDevelopmentGuide /></AnimatedPage>} />
               <Route path="/blog/esg-implementation-guide" element={<AnimatedPage><ESGImplementationGuide /></AnimatedPage>} />
               <Route path="/contact" element={<AnimatedPage><Contact /></AnimatedPage>} />
+              <Route path="*" element={<AnimatedPage><NotFound /></AnimatedPage>} />
             </Routes>
           </Suspense>
         </AnimatePresence>
@@ -92,11 +95,13 @@ const AppContent = () => {
 
 function App() {
   return (
-    <HelmetProvider>
-      <Router>
-        <AppContent />
-      </Router>
-    </HelmetProvider>
+    <ThemeProvider>
+      <HelmetProvider>
+        <Router>
+          <AppContent />
+        </Router>
+      </HelmetProvider>
+    </ThemeProvider>
   );
 }
 
